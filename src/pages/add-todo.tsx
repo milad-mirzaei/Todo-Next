@@ -1,11 +1,9 @@
-import HomePage from '@/components/templates/HomePage'
+import AddTodoPage from '@/components/templates/AddTodoPage'
 import React from 'react'
 
 const index = () => {
-
-
   return (
-    <HomePage/>
+    <AddTodoPage />
   )
 }
 
