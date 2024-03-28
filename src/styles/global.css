@@ -252,6 +252,18 @@ button {
   font-size: 1.3rem;
   font-weight: bold;
 }
+.home-page--todo {
+width: 25%;
+}
+.home-page--inProgress {
+width: 25%;
+}
+.home-page--review {
+width: 25%;
+}
+.home-page--done {
+width: 25%;
+}
 
 .home-page--todo p {
   background-color: #f2b82e;

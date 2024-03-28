@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GrAddCircle } from "react-icons/gr";
 import { BsAlignStart } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
@@ -7,10 +7,14 @@ import { MdDoneAll } from "react-icons/md";
 import RadioButton from "../element/RadioButton";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const AddTodoPage = () => {
+  const router = useRouter()
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("");
+  const {status:sessionStatus} = useSession()
   console.log(title, status);
 
   const addHandler = async () => {
@@ -38,6 +42,10 @@ const AddTodoPage = () => {
       });
     }
   };
+  useEffect(() => {
+    console.log(sessionStatus);
+    sessionStatus !== "authenticated" && router.replace("/signin");
+  }, [sessionStatus]);
 
   return (
     <div className="add-form">
